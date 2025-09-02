@@ -10,11 +10,30 @@ public class Producto {
     String nombre; 
     String categoria; 
     float precio; 
-    float descuento; 
+    private float descuento; 
     
-    public float precioFinal(){
+    
+    public String toString(){
+        return "El producto es " + nombre + "\n" +
+                "Departamento es " + categoria + "\n" +
+                "Precio es " + precio + "\n" + 
+                "Descuento es " + descuento + "\n" +
+                "Precio Final es " + getPrecioFinal();
+    }
+    
+    /**
+     * Permite asignar un valor de 0 o mayor 
+     * @param descuento la cantidad a asignar
+     */
+    public void setDescuento(float descuento){
+        this.descuento = descuento < 0 ? 0 : 
+                                   descuento; 
+    }
+    
+    public float getPrecioFinal(){
         return precio - descuento; 
     }
+
     
     
     
