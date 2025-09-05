@@ -8,6 +8,8 @@ public class ScannerProducto {
         Scanner sc = new Scanner(System.in); 
         Producto producto = new Producto(); 
         
+        System.out.println("Ingrese un codigo de barras:");
+        producto.codigoBarras = sc.nextLine(); 
         System.out.println("Ingrese el nombre del producto porfi: ");
         producto.nombre = sc.nextLine();
         System.out.println("Ingrese el precio del producto: ");

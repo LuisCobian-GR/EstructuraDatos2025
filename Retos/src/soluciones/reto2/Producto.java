@@ -11,14 +11,13 @@ public class Producto {
     String categoria; 
     float precio; 
     private float descuento; 
-    
+    String codigoBarras; 
     
     public String toString(){
-        return "El producto es " + nombre + "\n" +
-                "Departamento es " + categoria + "\n" +
-                "Precio es " + precio + "\n" + 
-                "Descuento es " + descuento + "\n" +
-                "Precio Final es " + getPrecioFinal();
+        String renglon = String.format("%-5s %-10s %-10s %6.2f %6.2f %6.2f", 
+                           codigoBarras, nombre, categoria, precio, descuento,
+                            getPrecioFinal());
+        return renglon; 
     }
     
     /**
