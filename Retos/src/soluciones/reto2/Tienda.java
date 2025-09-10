@@ -1,5 +1,6 @@
 package soluciones.reto2;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -12,7 +13,8 @@ public class Tienda {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); 
         ScannerProducto leer = new ScannerProducto(); 
-        Producto[] inventario = new Producto[10]; 
+        // Producto[] inventario = new Producto[10];
+        ArrayList<Producto> inventario = new ArrayList<>();
         int posicion = 0;  // sirve para ver donde esta un lugar libre
         int opc=0; 
         do{
@@ -25,12 +27,8 @@ public class Tienda {
             opc = Integer.parseInt(sc.nextLine()); 
             switch(opc){
                 case 1: 
-                    if(posicion < inventario.length){
-                        inventario[posicion] = leer.nextProducto();
-                        posicion ++; 
-                    }else {
-                        System.err.println("Inventario lleno");
-                    }
+                    Producto p = leer.nextProducto();
+                    inventario.add(p);
                     break; 
                 case 2: 
                     imprime(inventario, true); 
@@ -39,7 +37,8 @@ public class Tienda {
         }while(opc!=5); 
     }
     
-    public static void imprime(Producto[] inventario, boolean isInverso){
+    public static void imprime(ArrayList<Producto> inventario, 
+                                 boolean isInverso){
         drawLinea();
         System.out.println("INVENTARIO ORDEN INGRESO");
         drawLinea();
@@ -47,8 +46,8 @@ public class Tienda {
                           "COD","PRODUCTO","CATEGORIA", "PRECIO", 
                           "DESC", "TOTAL");
         drawLinea();
-        for(int i=0;i<inventario.length;i++){
-            Producto producto = inventario[i]; 
+        for(int i=0;i<inventario.size();i++){
+            Producto producto = inventario.get(i); 
             if(producto!=null)
                 System.out.println(producto);
         }
